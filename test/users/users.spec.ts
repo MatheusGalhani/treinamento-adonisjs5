@@ -63,7 +63,7 @@ test.group('User', (group) => {
       assert.equal(body.status, 409);
   });
 
-  test('it should return 409 when username is already in use', async (assert) => {
+  test('it should return 409 when uuid is already in use', async (assert) => {
     const { uuid } = await UserFactory.create();
     const { body } = await supertest(BASE_URL)
       .post('user')
@@ -78,7 +78,7 @@ test.group('User', (group) => {
       assert.exists(body.message);
       assert.exists(body.code);
       assert.exists(body.status);
-      assert.include(body.message, 'username');
+      assert.include(body.message, 'uuid');
       assert.equal(body.code, "BAD_REQUEST");
       assert.equal(body.status, 409);
   });
