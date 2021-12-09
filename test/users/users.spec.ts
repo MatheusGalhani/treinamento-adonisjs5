@@ -16,7 +16,7 @@ test.group('User', () => {
     assert.exists(body.user.id, 'User id undefined');
     assert.exists(body.user.email, 'User email undefined');
     assert.exists(body.user.username, 'User username undefined');
-    assert.exists(body.user.password, 'User password undefined');
+    assert.notExists(body.user.password, 'Password defined');
     assert.exists(body.user.avatar, 'User avatar undefined');
     assert.exists(body.user.uuid, 'User uuid undefined');
     
